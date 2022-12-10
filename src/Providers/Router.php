@@ -3,6 +3,7 @@ namespace provodd\base_framework\Providers;
 
 class Router
 {
+    public $route;
     public $route_list;
 
     public function __construct($r)
@@ -12,14 +13,14 @@ class Router
 
     public function start()
     {
-        $route = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+        $this->route = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
         $route_list = $this->route_list;
 
-        if (isset($route_list[$route])) {
-            $controller = 'App\\Controllers\\' . $route_list[$route]['controller'];
+        if (isset($route_list[$this->route])) {
+            $controller = 'App\\Controllers\\' . $route_list[$this->route]['controller'];
             $object = new $controller();
-            $action = $route_list[$route]['action'];
+            $action = $route_list[$this->route]['action'];
             $object->$action();
         } else {
             echo 'Несуществующая страница';
