@@ -1,0 +1,16 @@
+{
+    "name": "provodd/base_framework",
+    "description": "Basic functionality for PHP projects",
+    "authors": [
+        {
+            "name": "Ruslan Nurgaleev",
+            "email": "nurgaleev1@list.ru"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "provodd\\base_framework\\": "src/"
+        }
+    }
+}
