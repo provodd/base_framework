@@ -1,5 +1,5 @@
 <?php
-namespace provodd\base_framework;
+namespace provodd\base_framework\Providers;
 
 class Router{
     public function start(){

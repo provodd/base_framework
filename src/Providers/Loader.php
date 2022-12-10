@@ -1,4 +1,5 @@
 <?php
+namespace provodd\base_framework\Providers;
 
 class Autoloader
 {
