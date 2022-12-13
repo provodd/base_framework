@@ -26,7 +26,7 @@ class Db
         $this->db_user = Helper::instance()->checkEnvironmentVariables('DB_USER') ?? Helper::instance()->checkEnvironmentVariables('DB_NAME') ?? false;
         $this->db_password = Helper::instance()->checkEnvironmentVariables('DB_PASSWORD') ?? false;
 
-        require($_SERVER['DOCUMENT_ROOT'] . '/src/include/RedBeanORM.php');
+        require('include/RedBeanORM.php');
 
         \R::setup('mysql:host=127.0.0.1;dbname=' . $this->db_name . '', $this->db_user, $this->db_password);
         \R::ext('xdispense', function ($table_name) {

@@ -18,7 +18,7 @@ class Router
         $route_list = $this->route_list;
 
         if (isset($route_list[$this->route])) {
-            $controller = 'App\\controllers\\' . $route_list[$this->route]['controller'];
+            $controller = 'App\\Controllers\\' . $route_list[$this->route]['controller'];
             $object = new $controller();
             $action = $route_list[$this->route]['action'];
             $object->$action();
