@@ -1,21 +1,28 @@
 <?php
 namespace provodd\base_framework\Providers;
 
-class Router{
-    public function start(){
-        $route = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+class Router
+{
+    public $route;
+    public $route_list;
 
-        $route_list = [
-            "/" => ['controller' => 'Main', 'action' => 'index'],
-            '/index' => ['controller' => 'Main', 'action' => 'index'],
-        ];
+    public function __construct($r)
+    {
+        $this->route_list = $r;
+    }
 
-        if (isset($route_list[$route])){
-            $controller = 'App\\Controllers\\'.$route_list[$route]['controller'];
+    public function start()
+    {
+        $this->route = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+
+        $route_list = $this->route_list;
+
+        if (isset($route_list[$this->route])) {
+            $controller = 'App\\controllers\\' . $route_list[$this->route]['controller'];
             $object = new $controller();
-            $action = $route_list[$route]['action'];
+            $action = $route_list[$this->route]['action'];
             $object->$action();
-        }else{
+        } else {
             echo 'Несуществующая страница';
         }
     }
