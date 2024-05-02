@@ -1,5 +1,5 @@
 {
-    "name": "provodd/base_framework",
+    "name": "provodd/almaz",
     "description": "Basic functionality for PHP projects",
     "authors": [
         {
@@ -7,10 +7,14 @@
             "email": "nurgaleev1@list.ru"
         }
     ],
-    "require": {},
+    "require": {
+        "doctrine/orm": "^3",
+        "doctrine/dbal": "^4",
+        "symfony/cache": "^7"
+    },
     "autoload": {
         "psr-4": {
-            "provodd\\base_framework\\": "src/"
+            "Almaz\\": "src/"
         }
     }
 }
